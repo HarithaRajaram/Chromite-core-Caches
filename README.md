@@ -27,7 +27,7 @@ Check if fence and fence.iwork properly
 
 Check if performance counters are correctly incremented.
 
-Check to see if we can perform simultaneous io and cached ops
+Check to see if we can perform simultaneous IO and cached ops
     
 
 # File Format
