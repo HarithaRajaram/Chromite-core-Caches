@@ -36,35 +36,46 @@ Check to see if we can perform simultaneous IO and cached ops
     Describes each test idea and the generation of ASM using Python 3.
     
 ├── uatg_dcache_load_nl.py 
-    Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration.
-     _Code Description_
-     Markup : *Perform a fence operation to clear out the data cache subsystem and the fill buffer.
-     Perform several load operations to fill up the cache
-     In each iteration, we visit the next way in the same set.
-     Once all the ways in a set are touched, we visit the next set.
-     The total number of iterations is parameterized based on YAML input.
 
+    Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration
+    
+    _Code Description_
+     1)Perform a fence operation to clear out the data cache subsystem and the fill buffer.
+     2)Perform several load operations to fill up the cache
+     3)In each iteration, we visit the next way in the same set.
+     4)Once all the ways in a set are touched, we visit the next set.
+     The total number of iterations is parameterized based on YAML input
+     
+   
 ├── uatg_dcache_load_ns.py 
+
      Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration.
+     
      _Code Description_
-     Markup : *Perform a fence operation to clear out the data cache subsystem and the fill buffer.
-     Load some data into a temporary register and perform several load operations to fill up the cache.
-     Each loop in ASM has an unconditional jump back to that label, a branch takes us out of the loop.
-     Each iteration, we visit the next set.
+     1)Perform a fence operation to clear out the data cache subsystem and the fill buffer.
+     2)Load some data into a temporary register and perform several load operations to fill up the cache.
+     3)Each loop in ASM has an unconditional jump back to that label, a branch takes us out of the loop.
+     4)Each iteration, we visit the next set.
      The total number of iterations is parameterized based on YAML input.
     
 ├── uatg_dcache_store_nl.py 
- _Code Description_ Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
-     Markup : *Perform a fence operation to clear out the data cache subsystem and the fill buffer.
-     In each iteration, we visit the next way in the same set.
-     Once all the ways in a set are touched, we visit the next set.
+
+    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
+
+     _Code Description_ 
+     1)Perform a fence operation to clear out the data cache subsystem and the fill buffer.
+     2)In each iteration, we visit the next way in the same set.
+     3)Once all the ways in a set are touched, we visit the next set.
      The total number of iterations is parameterized based on YAML input.
     
 ├── uatg_dcache_store_ns.py 
- _Code Description_ Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
-     Markup : *Perform a fence operation to clear out the data cache subsystem and the fill buffer.
-     Load some data into a temporary register and perform numerous store operations to fill up the cache.
-     Each loop in ASM has an unconditional jump back to that label, a branch takes us out of the loop.
-     Each iteration, we visit the next set.
+
+    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
+
+     _Code Description_ 
+     1)Perform a fence operation to clear out the data cache subsystem and the fill buffer.
+     2)Load some data into a temporary register and perform numerous store operations to fill up the cache.
+     3)Each loop in ASM has an unconditional jump back to that label, a branch takes us out of the loop.
+     4)Each iteration, we visit the next set.
      The total number of iterations is parameterized based on YAML input.
     
