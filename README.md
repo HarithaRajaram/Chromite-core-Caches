@@ -8,7 +8,7 @@ File Format
     Describes each test idea and the generation of ASM using Python 3.
     
 ├── uatg_dcache_fill_1.py 
-    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next set in each iteration.
+    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
     
 ├── uatg_dcache_fill_2.py 
     Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
