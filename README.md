@@ -34,3 +34,18 @@ File Format
 └── uatg_dcache_set_thrashing.py 
     Generates ASM to perform Cache Set Thrashing.
     
+    Test Description
+Fill the cache completely based on the size mentioned in the core64.yaml input.
+Try to fill the fill-buffer completely.
+Perform cache line thrashing
+Perform cache set thrashing
+Perform all possible types of load/store access (byte, hword, word, dword)
+Perform a load/store hit in the RAMS
+Perform a load/store hit in the Fill-buffer
+Perform an 10 op
+Perform a store-to-load forwarding scenario from the store-buffer
+Perform a replacement on all sets.
+Check if fence and fence.iwork properly
+Check if performance counters are correctly incremented.
+Check to see if we can perform simultaneous io and cached ops
+    
