@@ -1,5 +1,5 @@
 # Chromite-core-Caches
-This repository contains the python scripts to generate RISC-V Assembly for testing the Cache subsystem of the Chromite Core by InCore Semiconductors.
+This repository contains the python codes to generate RISC-V Assembly for testing the Cache subsystem of the Chromite Core by InCore Semiconductors.
 This repository can be initialised as a submodule in chromite_uatg_tests.
 
 # Test Description is as follows
@@ -31,32 +31,34 @@ Check to see if we can perform simultaneous IO and cached ops
     
 
 # File Format
+Keeping in mind the structure of the index.yaml file the naming of the files is presented as follows.
 
 ├── README.md 
     Describes each test idea and the generation of ASM using Python 3.
     
-├── uatg_dcache_load_nl.py 
+├── uatg_cache_dcache_load_nl.py 
 
-    Generates ASM to fill the Data Cache by performing consecutive loads in continuous address locationsand jumps to the next line in each iteration
+    Generates ASM to fill the Data Cache by performing consecutive loads in continuous address locations and jumps to the next line in each iteration
     
     _Code Description_
+    1)Check every consecutive address locations for data ,if an address is empty fill it with some data until the end of the line in each iteration
      
    
-├── uatg_dcache_load_ns.py 
+├── uatg_cache_dcache_load_ns.py 
 
      Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration.
      
      _Code Description_
-     
+     1)
     
-├── uatg_dcache_store_nl.py 
+├── uatg_cache_dcache_store_nl.py 
 
     Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
 
      _Code Description_ 
      
     
-├── uatg_dcache_store_ns.py 
+├── uatg_cache_dcache_store_ns.py 
 
     Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
 
