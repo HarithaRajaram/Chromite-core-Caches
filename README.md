@@ -2,7 +2,7 @@
 This repository contains the python scripts to generate RISC-V Assembly for testing the Cache subsystem of the Chromite Core by InCore Semiconductors.
 This repository can be initialised as a submodule in chromite_uatg_tests.
 
-# Test Description is as folows
+# Test Description is as follows
 Fill the cache completely based on the size mentioned in the core64.yaml input.
 Try to fill the fill-buffer completely.
 Perform cache line thrashing
