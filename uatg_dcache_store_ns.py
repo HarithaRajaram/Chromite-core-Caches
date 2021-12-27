@@ -6,7 +6,7 @@ import re
 import os
 import random
 
-class uatg_dcache_fill(IPlugin):
+class uatg_dcache_store_ns(IPlugin):
     def __init__(self):
         super().__init__()
         self._sets = 64
@@ -28,7 +28,7 @@ class uatg_dcache_fill(IPlugin):
         f.close()
 
         test_report = {
-                "dcache_fill_1_report": {
+                "dcache_store_ns_report": {
                     'Doc': "ASM should have filled the cache of size {0}. This report verifies that.".format(self._sets * self._word_size * self._block_size * self._ways / 8)
                     'Execution status': ''
                     }
