@@ -35,17 +35,17 @@ Check to see if we can perform simultaneous IO and cached ops
 ├── README.md 
     Describes each test idea and the generation of ASM using Python 3.
     
-├── uatg_dcache_store_ns.py 
-    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
-    
-├── uatg_dcache_store_nl.py 
-    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
-    
 ├── uatg_dcache_load_ns.py 
     Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next set in each iteration.
     
 ├── uatg_dcache_load_nl.py 
     Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration.
+    
+├── uatg_dcache_store_ns.py 
+    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations,jumps to the next set in each iteration.
+    
+├── uatg_dcache_store_nl.py 
+    Generates ASM to fill the Data Cache by performing consecutive stores at different address locations, jumps to the next line in each iteration.
     
 
     
