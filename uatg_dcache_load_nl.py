@@ -27,6 +27,8 @@ class uatg_cache_dcache_fill(IPlugin):
         asm+='fillc:'
         for i in range(self._cache_size):
 	        asm+=f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
+		data = random.randrange(4127893)
+		address=address+word_size
   
   
   return [{
