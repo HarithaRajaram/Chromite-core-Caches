@@ -1,3 +1,5 @@
+#Attributed to Gitlab repo on subsystem caches by Neel gala and caches code by Vishwa ,BK Karthik ,Ayush on github
+
 from yapsy.IPlugin import IPlugin
 from ruamel.yaml import YAML
 import uatg.regex_formats as rf
@@ -37,19 +39,15 @@ class uatg_dcache_strore_nl(IPlugin):
     def generate_covergroups(self, config_file):
         ''
 
-    def generate_asm(self) -> List[Dict[str, Union[Union[str, list], Any]]]:
+    def generate_asm(self) -> List[Dict[str, str]]:
 
-        asm_data = '\nrvtest_data:\n'
+        asm_data = random.randrange(16**8)
 
         for i in range (self._block_size * self._sets * self._ways*2):
-            asm_data += "\t.word 0x{0:08x}\n".format(random.randrange(16**8))
+            asm_data += f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
-    	asm_main = "\tfence\n\tli, t0, 69\n\li, t1, {0}\n\tli, t5, {1}\n\tli, t6, {2}\n\tla t2, rvtest_data\n".format(self._sets, self._ways, self._sets * self._ways)
-    	asm_lab1 = "lab1:\n\tsw t0, 0(t2)\n\taddi t2, t2, {0}\n\taddi t4, t4, 1\n\tblt t4, t5, lab1\n\tli t2,0\n\tadd t2, t2, t6\n\taddi t6, t6, {1}\n\taddi a1, a1, 1\n\tblt a1, t6, end\n\tj lab1\n".format(self._sets * self._word_size *, self._block_size)
-    	asm_end = "end:\n\tnop\n\tfence.i\n"
-        
-        asm = asm_main + asm_lab1 + asm_end
-        compile_macros = []
+    	asm_end = "end:\n\tnop\n"
+  
 
         return [{
             'asm_code': asm,
