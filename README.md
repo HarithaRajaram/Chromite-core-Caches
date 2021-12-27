@@ -37,7 +37,7 @@ Check to see if we can perform simultaneous IO and cached ops
     
 ├── uatg_dcache_load_nl.py 
 
-    Generates ASM to fill the Data Cache by performing consecutive loads at different address locations, jumps to the next line in each iteration
+    Generates ASM to fill the Data Cache by performing consecutive loads in continuous address locationsand jumps to the next line in each iteration
     
     _Code Description_
      
