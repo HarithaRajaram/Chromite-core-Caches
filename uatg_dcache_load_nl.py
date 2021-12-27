@@ -5,7 +5,7 @@ from typing import Dict, Union, Any, List
 import re
 import os
 
-class uatg_dcache_fill(IPlugin):
+class uatg_dcache_load_nl(IPlugin):
     def __init__(self):
         super().__init__()
         self._sets = 64
@@ -27,7 +27,7 @@ class uatg_dcache_fill(IPlugin):
         f.close()
 
         test_report = {
-                "cache_dcache_fill_01_report": {
+                "dcache_load_nl_report": {
                     'Doc': "ASM should have filled the cache of size {0}. This report verifies that.".format(self._sets * self._word_size * self._block_size * self._ways / 8)
                     'Execution status': ''
                     }
