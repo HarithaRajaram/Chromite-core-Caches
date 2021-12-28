@@ -1,3 +1,5 @@
+#Attributed to Gitlab repo on subsystem caches by Neel gala and caches code by Vishwa ,BK Karthik ,Ayush on github
+
 from yapsy.IPlugin import IPlugin
 from ruamel.yaml import YAML
 import uatg.regex_formats as rf
@@ -6,9 +8,9 @@ import re
 import os
 import random
 
-class uatg_dcache_store_ns(IPlugin):
-    def __init__(self):
-        super().__init__()
+class uatg_dcache_strore_nl(IPlugin):
+    def init(self):
+        super().init()
         self._sets = 64
         self._word_size = 8
         self._block_size = 8
@@ -28,7 +30,7 @@ class uatg_dcache_store_ns(IPlugin):
         f.close()
 
         test_report = {
-                "dcache_store_ns_report": {
+                "dcache_strore_nl_report": {
                     'Doc': "ASM should have filled the cache of size {0}. This report verifies that.".format(self._sets * self._word_size * self._block_size * self._ways / 8)
                     'Execution status': ''
                     }
@@ -37,19 +39,15 @@ class uatg_dcache_store_ns(IPlugin):
     def generate_covergroups(self, config_file):
         ''
 
-    def generate_asm(self) -> List[Dict[str, Union[Union[str, list], Any]]]:
+    def generate_asm(self) -> List[Dict[str, str]]:
 
-        asm_data = '\nrvtest_data:\n'
+        asm_data = random.randrange(16**8)
 
         for i in range (self._block_size * self._sets * self._ways*2):
-            asm_data += "\t.word 0x{0:08x}\n".format(random.randrange(16**8))
-
-        asm_main = "\tfence\n\tli t0, 69\n\tli t1, 1\n\tli t3, {0}\n\tla t2, rvtest_data\n".format(self._sets * self._ways)
-        asm_lab1 = "lab1:\n\tsw t0, 0(t2)\n\taddi t2, t2, {0}\n\tbeq t4, t3, end\n\taddi t4, t4, 1\n\tj lab1\n".format(self._sets * self._word_size * self._block_size)
-        asm_end = "end:\n\tnop\n\tfence.i\n"
+            asm_data += f'\n\tlw t0, 0(t1)\n\taddi t1, t1, {self._sets*self._block_size*self._word_size}\n'
         
-        asm = asm_main + asm_lab1 + asm_end
-        compile_macros = []
+    	asm_end = "end:\n\tnop\n"
+  
 
         return [{
             'asm_code': asm,
